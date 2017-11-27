@@ -18,7 +18,7 @@ class LucenePageFinder implements PageFinder {
     }
 
     @Override
-    def find(String keyword) throws Exception {
+    List<WikiPage> find(String keyword) throws Exception {
         final def result = []
         for (ScoreDoc sd: fuzzySearch(keyword, "content", DEFAULT_LIMIT)) {
             result << scoreDocToWikiPage(sd)
