@@ -1,9 +1,9 @@
-package com.example.samples.BatchLuceneDemo.services
+package com.example.samples.spring.lucene.demo.services
 
-import com.example.samples.BatchLuceneDemo.domain.WikiPage
-import com.example.samples.BatchLuceneDemo.logic.PageCreator
-import com.example.samples.BatchLuceneDemo.logic.PageFinder
-import com.example.samples.BatchLuceneDemo.logic.PageIndexer
+import com.example.samples.spring.lucene.demo.logic.PageCreator
+import com.example.samples.spring.lucene.demo.logic.PageIndexer
+import com.example.samples.spring.lucene.demo.domain.WikiPage
+import com.example.samples.spring.lucene.demo.logic.PageFinder
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 

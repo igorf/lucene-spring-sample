@@ -1,4 +1,4 @@
-package com.example.samples.BatchLuceneDemo.config
+package com.example.samples.spring.lucene.demo.config
 
 import org.apache.lucene.index.DirectoryReader
 import org.apache.lucene.index.IndexReader

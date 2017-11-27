@@ -1,7 +1,7 @@
-package com.example.samples.BatchLuceneDemo.logic.impl
+package com.example.samples.spring.lucene.demo.logic.impl
 
-import com.example.samples.BatchLuceneDemo.domain.WikiPage
-import com.example.samples.BatchLuceneDemo.logic.PageFinder
+import com.example.samples.spring.lucene.demo.domain.WikiPage
+import com.example.samples.spring.lucene.demo.logic.PageFinder
 import org.apache.lucene.index.IndexReader
 import org.apache.lucene.index.Term
 import org.apache.lucene.search.*

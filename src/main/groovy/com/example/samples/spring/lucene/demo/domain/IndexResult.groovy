@@ -1,4 +1,4 @@
-package com.example.samples.BatchLuceneDemo.domain
+package com.example.samples.spring.lucene.demo.domain
 
 class IndexResult {
     boolean result

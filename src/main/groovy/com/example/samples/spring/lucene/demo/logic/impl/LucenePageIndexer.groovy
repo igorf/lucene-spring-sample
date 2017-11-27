@@ -1,7 +1,7 @@
-package com.example.samples.BatchLuceneDemo.logic.impl
+package com.example.samples.spring.lucene.demo.logic.impl
 
-import com.example.samples.BatchLuceneDemo.domain.WikiPage
-import com.example.samples.BatchLuceneDemo.logic.PageIndexer
+import com.example.samples.spring.lucene.demo.domain.WikiPage
+import com.example.samples.spring.lucene.demo.logic.PageIndexer
 import org.apache.lucene.document.Document
 import org.apache.lucene.document.Field
 import org.apache.lucene.document.FieldType

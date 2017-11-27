@@ -1,10 +1,10 @@
-package com.example.samples.BatchLuceneDemo.controller
+package com.example.samples.spring.lucene.demo.controller
 
-import com.example.samples.BatchLuceneDemo.domain.IndexResult
-import com.example.samples.BatchLuceneDemo.domain.IndexingAddress
-import com.example.samples.BatchLuceneDemo.domain.SearchInput
-import com.example.samples.BatchLuceneDemo.domain.WikiPage
-import com.example.samples.BatchLuceneDemo.services.WikiPageService
+import com.example.samples.spring.lucene.demo.domain.IndexResult
+import com.example.samples.spring.lucene.demo.domain.IndexingAddress
+import com.example.samples.spring.lucene.demo.domain.SearchInput
+import com.example.samples.spring.lucene.demo.domain.WikiPage
+import com.example.samples.spring.lucene.demo.services.WikiPageService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

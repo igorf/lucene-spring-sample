@@ -1,6 +1,6 @@
-package com.example.samples.BatchLuceneDemo.logic.impl;
+package com.example.samples.spring.lucene.demo.logic.impl;
 
-import com.example.samples.BatchLuceneDemo.domain.WikiPage;
+import com.example.samples.spring.lucene.demo.domain.WikiPage;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;

@@ -1,7 +1,7 @@
-package com.example.samples.BatchLuceneDemo.logic.impl
+package com.example.samples.spring.lucene.demo.logic.impl
 
-import com.example.samples.BatchLuceneDemo.domain.WikiPage
-import com.example.samples.BatchLuceneDemo.logic.PageCreator
+import com.example.samples.spring.lucene.demo.domain.WikiPage
+import com.example.samples.spring.lucene.demo.logic.PageCreator
 import org.htmlcleaner.HtmlCleaner
 import org.htmlcleaner.TagNode
 
