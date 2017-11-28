@@ -19,20 +19,16 @@ class AppConfig {
 
     @Bean
     PageCreator getPageCreator() {
-        return new DefaultPageCreator()
+        new DefaultPageCreator()
     }
 
     @Bean
     PageIndexer getPageIndexer() {
-        LucenePageIndexer idx = new LucenePageIndexer()
-        idx.setIndexWriter(luceneWriter)
-        return idx
+        new LucenePageIndexer()
     }
 
     @Bean
     PageFinder getPageFinder() {
-        LucenePageFinder finder = new LucenePageFinder()
-        finder.setIndexReader(luceneReader)
-        return finder
+        new LucenePageFinder()
     }
 }

@@ -23,11 +23,8 @@ class DefaultPageCreator implements PageCreator {
     }
 
     private static String textFromNode(TagNode root, String xpath, String defaultText) {
-        if (root == null) {
-            return defaultText
-        }
-        def elements = root.evaluateXPath(xpath)
-        if (elements.length > 0) {
+        def elements = root?.evaluateXPath(xpath)
+        if (elements?.length > 0) {
             TagNode tn = (TagNode) elements[0]
             return tn?.text ?: defaultText
         }

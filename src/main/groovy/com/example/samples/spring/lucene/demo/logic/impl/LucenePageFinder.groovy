@@ -6,17 +6,16 @@ import com.example.samples.spring.lucene.demo.logic.PageFinder
 import org.apache.lucene.index.IndexReader
 import org.apache.lucene.index.Term
 import org.apache.lucene.search.*
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Configurable
 
 import java.text.ParseException
 
+@Configurable
 class LucenePageFinder implements PageFinder {
     private final static int DEFAULT_LIMIT = 1000
     private final static int DEFAULT_FUZZY_DEPTH = 2
-    private IndexReader indexReader
-
-    void setIndexReader(IndexReader indexReader) {
-        this.indexReader = indexReader
-    }
+    @Autowired private IndexReader indexReader
 
     @Override
     List<WikiPage> find(String keyword) throws Exception {
