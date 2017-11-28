@@ -1,10 +1,11 @@
 package com.example.samples.spring.lucene.demo.controller
 
-import com.example.samples.spring.lucene.demo.domain.IndexResult
 import com.example.samples.spring.lucene.demo.domain.IndexingAddress
 import com.example.samples.spring.lucene.demo.domain.SearchInput
 import com.example.samples.spring.lucene.demo.domain.WikiPage
 import com.example.samples.spring.lucene.demo.services.WikiPageService
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -16,26 +17,28 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class WikiPageController {
 
-    @Autowired
-    private WikiPageService wikiPageService
+    @Autowired private WikiPageService wikiPageService
+    private static final Logger logger = LoggerFactory.getLogger(WikiPageController.class)
 
     @RequestMapping(value = "/page/add", method = RequestMethod.POST)
-    ResponseEntity<IndexResult> indexPage(@RequestBody IndexingAddress indexingAddress) {
+    ResponseEntity<Void> indexPage(@RequestBody IndexingAddress indexingAddress) {
         try {
             wikiPageService.index(indexingAddress.url)
-            return new ResponseEntity<IndexResult>(new IndexResult(result: true, message: "ok"), HttpStatus.OK)
+            return new ResponseEntity<Void>(HttpStatus.OK)
         } catch (Exception ex) {
-            return new ResponseEntity<IndexResult>(new IndexResult(result: false, message: ex.message), HttpStatus.BAD_REQUEST)
+            logger.error(ex.message)
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
 
-    @RequestMapping("/page/find")
+    @RequestMapping(value = "/page/find", method = RequestMethod.POST)
     ResponseEntity<List<WikiPage>> findPages(@RequestBody SearchInput searchInput) {
         try {
             List<WikiPage> result = wikiPageService.findByKeyword(searchInput.searchPhrase)
             return new ResponseEntity<List<WikiPage>>(result, HttpStatus.OK)
         } catch (Exception ex) {
-            return new ResponseEntity<List<WikiPage>>([], HttpStatus.BAD_REQUEST)
+            logger.error(ex.message)
+            return new ResponseEntity<List<WikiPage>>([], HttpStatus.INTERNAL_SERVER_ERROR)
         }
     }
 }
