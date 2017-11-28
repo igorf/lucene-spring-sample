@@ -1,6 +1,7 @@
 package com.example.samples.spring.lucene.demo.logic.impl
 
 import com.example.samples.spring.lucene.demo.domain.WikiPage
+import com.example.samples.spring.lucene.demo.domain.WikiPageDocumentMarshaller
 import com.example.samples.spring.lucene.demo.logic.PageFinder
 import org.apache.lucene.index.IndexReader
 import org.apache.lucene.index.Term
@@ -37,9 +38,6 @@ class LucenePageFinder implements PageFinder {
     }
 
     private WikiPage scoreDocToWikiPage(final ScoreDoc scoreDoc) {
-        new WikiPage(
-                title: indexReader.document(scoreDoc.doc).get("title"),
-                text: indexReader.document(scoreDoc.doc).get("content")
-        )
+        WikiPageDocumentMarshaller.pageByDocument(indexReader.document(scoreDoc.doc))
     }
 }

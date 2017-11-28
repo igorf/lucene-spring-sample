@@ -1,11 +1,8 @@
 package com.example.samples.spring.lucene.demo.logic.impl
 
 import com.example.samples.spring.lucene.demo.domain.WikiPage
+import com.example.samples.spring.lucene.demo.domain.WikiPageDocumentMarshaller
 import com.example.samples.spring.lucene.demo.logic.PageIndexer
-import org.apache.lucene.document.Document
-import org.apache.lucene.document.Field
-import org.apache.lucene.document.FieldType
-import org.apache.lucene.index.IndexOptions
 import org.apache.lucene.index.IndexWriter
 
 class LucenePageIndexer implements PageIndexer {
@@ -17,22 +14,7 @@ class LucenePageIndexer implements PageIndexer {
 
     @Override
     void index(WikiPage page) throws Exception {
-        this.indexWriter.addDocument(documentFromWikiPage(page))
-    }
-
-    private static Document documentFromWikiPage(WikiPage wikiPage) {
-        final Document document = new Document()
-
-        final FieldType textIndexedType = new FieldType()
-        textIndexedType.setStored(true)
-        textIndexedType.setIndexOptions(IndexOptions.DOCS)
-        textIndexedType.setTokenized(true)
-
-        Field title = new Field("title", wikiPage.title, textIndexedType)
-        Field content = new Field("content", wikiPage.text, textIndexedType)
-
-        document.add(title)
-        document.add(content)
-        return document
+        indexWriter.addDocument(WikiPageDocumentMarshaller.documentByPage(page))
+        indexWriter.commit()
     }
 }
